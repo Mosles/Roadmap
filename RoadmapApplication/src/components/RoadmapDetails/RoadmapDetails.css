@@ -1,0 +1,360 @@
+.roadmap-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #fff;
+}
+
+.task-section{
+  width:100%;
+}
+
+
+.roadmap-title-details {
+  font-size: 1.2rem;
+  margin-right: 10px;
+  font-weight:bold;
+}
+
+.roadmap-date-details {
+  font-size: 0.8rem;
+}
+
+  .roadmap-tasks-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* This ensures it occupies the full width of its parent */
+    align-items: center; /* Center align the tasks within */
+}
+
+
+.roadmap-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom:50px;
+}
+  /* ... (rest of your styles) ... */
+
+  .add-task-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+  }
+
+  .task-checkbox {
+    display: none; /* Hide the original checkbox */
+    appearance: none; /* Remove default styling */
+    -webkit-appearance: none; /* For Safari */
+    -moz-appearance: none; /* For Firefox */
+  }
+  
+  .task-checkbox-custom {
+    cursor: pointer;
+    height: 20px; /* Fixed height */
+    width: 20px; /* Fixed width */
+    border-radius: 50%;
+    border: 2px solid #777;
+    display: flex; /* Use flex to center the content */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    position: relative;
+    flex-shrink: 0; /* Prevent checkbox from shrinking */
+    vertical-align: middle; /* Align with the text, though flex alignment may suffice */
+}
+
+  
+  .task-checkbox-custom:hover::before {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+  
+  .task-checkbox:checked + .task-checkbox-custom {
+    background-color: green; /* Change as per your theme color */
+    border:none;
+  }
+  
+  .task-checkbox:checked + .task-checkbox-custom::before {
+    color: #fff;
+  }
+  
+  .task-checkbox-custom-disabled {
+    cursor: default; /* Override the pointer cursor */
+    opacity: 0.6; /* Visual indication that the checkbox is disabled */
+}
+
+.task-checkbox-custom-disabled:hover::before {
+    content: none; /* Prevent showing the checkmark on hover */
+}
+
+.task-list{
+  width:100%;
+}
+
+  .task-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center; /* Center the content vertically */
+    margin-left:20px;
+    cursor: pointer; /* Change the cursor to indicate it's clickable */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+  }
+
+.task-description-details:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Slight background color change on hover */
+}
+
+  .task {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: 10px; /* Adjust padding as necessary */
+    margin-bottom: 50px; /* Increased space after each task */
+    position: relative; /* Needed for absolute positioning of the before pseudo-element */
+  }
+  
+  .task::before {
+    content: ''; /* Required for the pseudo-element to work */
+    position: absolute;
+    left: 0; /* Aligns the line to the left */
+    top: 0; /* Starts at the top of the task container */
+    bottom: 0; /* Stretches to the bottom of the task container */
+    width: 2px; /* Width of the separator line */
+    background-color: #444; /* Color of the separator line */
+  }
+  
+  .task:not(:first-of-type)::before {
+    content: ''; /* Only create the separator line if it's not the first task */
+  }
+  
+  .task:last-child {
+    margin-bottom: 20px; /* Ensures consistency in spacing for the last item */
+  }
+  
+  
+  .task-completed {
+    background-color: transparent; /* Adjust if you have a specific background for completed tasks */
+  }
+  
+  .task-completed::before {
+    background-color: green; /* Change the line color for completed tasks */
+  }
+  
+  .task-completed .priority-icon,
+  .task-completed .task-checkbox-container {
+    display: none; /* Hide the priority icon and checkbox for completed tasks */
+  }
+  
+  
+  .task-metadata {
+    display: flex;
+    align-items: center; /* This line is crucial for vertical alignment */
+    justify-content: start; /* Adjust this as needed */
+    margin-top:20px;
+  }
+  
+  
+  .username {
+    background-color: #666666; /* Darker background for username */
+    color: #FFFFFF;
+    border-radius: 50%;
+    padding: 5px 10px;
+    margin-right: 10px; /* Space after the username */
+    font-weight: bold;
+    white-space: nowrap; /* Prevent username from wrapping */
+  }
+  
+.task-specific-time {
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  padding: 2px 5px; /* Padding for the time label */
+  border: 1px solid #777; /* Border for the time label */
+  border-radius: 5px; /* Rounded corners for the time label */
+  margin-right: 10px;
+}
+
+.roadmap-header-container{
+  width:100%;
+  border: 1px solid #777;
+  border-radius: 5px;
+  margin-bottom:60px;
+  padding:20px;
+}
+
+
+.task-view-buttons button {
+  color: #FFFFFF;
+  background-color: #333333;
+  font-size: 0.9rem;
+  padding: 5px 10px;
+  border: 1px solid #777;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* To position the text and icon */
+  align-items: center; /* To vertically center the contents */
+}
+
+.task-view-buttons button.active {
+  background-color: #4CAF50;
+  color: white; /* Active button text color */
+}
+
+.task-view-buttons button:hover {
+  background-color: #444;
+}
+
+.task-view-buttons {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  align-items: flex-start; /* Aligns button to the start of the container */
+}
+
+
+.priority-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px; /* Adjust as needed */
+  border: 1px solid #777; /* Border around the icon */
+  border-radius: 50%; /* Circular border for the icon */
+  padding: 5px; /* Padding inside the icon border */
+  width: 30px; /* Fixed width */
+  height: 30px; /* Fixed height */
+}
+
+.task-description-details {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #777;
+  background-color: #222;
+  color: #ddd;
+  display: flex;
+  align-items: center; /* Center items vertically */
+  width: 100%;
+  overflow-wrap: break-word; /* to break lines that would otherwise overflow */
+  word-break: break-word; /* to break unbreakable words */
+}
+  
+.add-task-button {
+    border-radius: 4px;
+    cursor: pointer;
+    box-sizing: border-box; /* Makes sure padding is included in width */
+    margin-bottom: 20px;
+    border:none;
+    cursor: pointer;
+    background-color: transparent;
+    color:white;
+    border-radius: 4px;
+    float:left;
+    text-align: left;
+    padding:10px;
+}
+
+.add-task-button:hover {
+  background-color: #444; /* Slightly lighter on hover */
+}
+
+/* Responsive adjustments if needed */
+@media (max-width: 750px) {
+  .add-task-button {
+    width: 100%; /* Full width button on smaller screens */
+    box-sizing: border-box; /* Include padding and border in the width */
+  }
+}
+
+.task-divider {
+  border: none; /* Remove the default border */
+  height: 1px; /* Set the height of the line */
+  background-color: #ffffff; /* Set the color of the line */
+  margin: 20px auto; /* Center the line and add some space above and below */
+  max-width: 800px; /* Match the max-width of .roadmap-details */
+}
+
+.task-divider-status {
+  border: none;
+  height: 2px;
+  background-color: #ffffff; /* Ensure visibility against your page background */
+  margin: 20px auto;
+  width: 100%; /* Ensure it spans the full width of its container */
+  max-width: 800px; /* Constrain the maximum width as needed */
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu-task-status {
+  position: absolute;
+  top: 100%; /* Adjust this to bring the dropdown closer to the button if needed */
+  left: 0;
+  right: 0;
+  width: calc(100%); /* Adjusts width to match the button, accounting for border */
+  background-color: #333;
+  border-radius: 5px;
+  border: 1px solid #777;
+  z-index: 1000; /* Ensure dropdown is on top */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Optional: adds some depth to the dropdown */
+}
+
+.dropdown-menu-task-status div {
+  padding: 5px 10px; /* Adjust padding to match button's vertical padding */
+  cursor: pointer;
+  text-align: left; /* Match text alignment to button */
+  color: #FFFFFF; /* Match text color to button */
+  font-size: 0.9rem; /* Match font size to button */
+}
+
+.dropdown-menu-task-status div:hover {
+  background-color: #555;
+}
+
+/* Adjust the button to accommodate the dropdown correctly */
+.task-view-buttons > button {
+  width: 100%; /* Ensures the button stretches to fill its container */
+  justify-content: space-between; /* Keeps text and icon spaced apart */
+  padding-right: 20px; /* Prevents text/icon from being too close to the edge */
+}
+
+.task-status-indicator {
+  margin-bottom: 10px; /* Space between the indicator and the dropdown button */
+  color: #FFF; /* Text color */
+}
+
+/* If you want to adjust the icon size or color */
+.fa-caret-down {
+  color: #FFF;
+  margin-left: 5px;
+}
+
+.task-controls-container {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  gap: 5px; /* Space between button and summary text */
+}
+
+.task-status-summary, .roadmap-date {
+  padding: 5px 10px;
+  border: 1px solid #777;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  font-size: 0.9rem;
+  width:auto;
+  margin-left: 10px; /* Space between elements */
+}

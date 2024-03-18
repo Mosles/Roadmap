@@ -1,0 +1,88 @@
+/* Task.css */
+.add-task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%; 
+  background-color: #333; /* Dark background */
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+  
+.task-input, .task-date-input, .priority-select {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #777;
+  background-color: #222;
+  color: #ddd;
+  margin-bottom: 10px; /* You can adjust or remove this if it creates too much space */
+  width: 100%; /* Full width of their container */
+  box-sizing: border-box; /* Include padding in width calculation */
+  outline:none;
+}
+
+.task-select{
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #777;
+  background-color: #222;
+  color: #ddd;
+  margin-bottom: 10px; /* You can adjust or remove this if it creates too much space */
+  width: 50%; /* Full width of their container */
+  box-sizing: border-box; /* Include padding in width calculation */
+  outline:none;
+}
+
+  .task-description {
+    height: 50px; /* Or any other height */
+    resize: none; /* Prevent resizing */
+  }
+  
+  .priority-select, .task-date-input {
+    cursor: pointer;
+    outline:none;
+    width:36%;
+  }
+  
+  .task-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.date-priority-container {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  gap: 10px; /* Adjust the gap between stacked items */
+}
+
+  
+  .save-task-button, .cancel-task-button {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .save-task-button {
+    background-color: #5cb85c; /* Green color for save */
+    color: white;
+  }
+  
+  .cancel-task-button {
+    background-color: #d9534f; /* Red color for cancel */
+    color: white;
+  }
+  
+  .save-task-button:hover {
+    background-color: #4cae4c;
+  }
+  
+  .cancel-task-button:hover {
+    background-color: #d43f3a;
+  }
+  
+  /* You can add media queries for responsiveness if needed */
+  

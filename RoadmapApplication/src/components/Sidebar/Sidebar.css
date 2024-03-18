@@ -1,0 +1,272 @@
+.sidebar {
+display: flex;
+flex-direction: column;
+justify-content: space-between; /* Aligns items to start and end of the container */
+background-color: #252525; /* Adjust the color to match the image */
+color: white;
+flex: 0 0 300px;
+z-index: 1050;
+position: relative;
+}
+
+.nav-container {
+flex: 1;
+}
+
+.nav-item {
+position: relative;
+display: flex;
+align-items: center;
+border-radius: 4px;
+cursor: pointer;
+width: 100%; /* Ensure the flex container spans the full width */
+box-sizing: border-box; /* Makes sure padding is included in width */
+border:none;
+cursor: pointer;
+background-color: transparent;
+color:white;
+border-radius: 4px;
+width:100%;
+padding:10px;
+}
+
+.nav-container-items{
+padding:20px;
+}
+
+.sidebar .nav-item:hover {
+  background-color: #333333;
+}
+
+.nav-item .fa-icon {
+margin-right: 15px;
+}
+
+/* Dashboard.css */
+.sidebar-header {
+display: flex;
+align-items: center;
+padding:20px;
+}
+
+.platform-name {
+font-weight: bold;
+text-align: center;
+}
+
+.news-button {
+  display: block; /* or inline-block */
+  width: 100%; /* Take up the full container width */
+  background-color: transparent; /* Match the sidebar background */
+  color: white; /* Text color */
+  border: none; /* No border */
+  text-align: left; /* Align text to the left */
+  cursor: pointer; /* Change cursor on hover */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.news-button:hover {
+  background-color: #333333; /* Color change on hover */
+}
+
+
+.platform-icons {
+display: flex;
+align-items: center;
+}
+
+.platform-name-icon {
+margin-right: 15px; /* Space between icon and text */
+/* Adjust the size as needed */
+}
+
+.platform-icon {
+font-size: 16px;
+margin-left: 10px;
+cursor: pointer;
+}
+
+.user-area {
+  position: absolute; /* Absolute positioning to place it at the bottom */
+  left: 0; /* Align left to the container */
+  right: 0; /* Align right to the container */
+  bottom: 0; /* Align bottom to the container */
+  padding: 20px 20px; /* Padding to match the sidebar's padding, adjust as needed */
+  /* ... other styles ... */
+}
+
+.dropdown-menu-username {
+  position: absolute;
+  bottom: 70px; /* Height of the user area + any desired offset */
+  left: 20px; /* Match the left padding of the sidebar */
+  right: 20px; /* Match the right padding of the sidebar */
+  background-color: #3a3a3a;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px); /* Slightly move down */
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  z-index: 1050; /* Ensure it's above other content */
+}
+
+/* Show the dropdown menu */
+.dropdown-menu-username.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0); /* Reset position when visible */
+}
+
+.user-name {
+position: relative;
+display: flex;
+align-items: center;
+justify-content: space-between; /* This will push the cog icon to the right */
+padding: 10px;
+border-radius: 4px;
+cursor: pointer;
+width: 100%; /* Ensure the flex container spans the full width */
+box-sizing: border-box; /* Makes sure padding is included in width */
+}
+
+.user-name:hover{
+background-color: #333333;
+}
+
+/* Style for the user icon */
+.user-icon {
+margin-right: 8px;
+}
+
+/* Style for the toggle button */
+.toggle-btn-sidebar {
+    width: 35px;
+    height: 35px;
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    background-color: #252525;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+.toggle-btn-sidebar:hover {
+background-color: #333333; /* Slightly lighter color on hover */
+}
+
+
+.sidebar-closed-indicator {
+position: fixed;
+left: 0;
+right: 0;
+bottom: 0;
+height: 50px; /* Height of the toggle button area */
+background-color: #252525; /* Black background */
+z-index: 1090; /* Below the toggle button but above other content */
+}
+
+.dropdown-item {
+display: flex !important;
+align-items: center !important;
+padding: 10px 7px !important; /* Increase padding for more space */
+cursor: pointer !important;
+}
+
+.dropdown-item:last-child {
+border-bottom: none !important;
+}
+
+.dropdown-item-icon {
+margin-right: 15px !important; /* Space between icon and text */
+vertical-align: middle !important;
+}
+
+.dropdown-item span {
+    line-height: 1 !important; /* Adjust line height to match icon size */
+    vertical-align: middle !important;
+}
+
+.dropdown-item:hover {
+background-color: #333333 !important;
+}
+
+.header-border {
+  border: 0;
+  height: 2px;
+  background-color: white; /* Or any color that fits your design */
+margin:0;
+  width: 100%; /* Ensure it spans the full width */
+  padding:0;
+}
+
+@media (max-width: 750px) {
+  .sidebar {
+  position: fixed;
+  bottom: -100%; /* Initially hidden */
+  left: 0;
+  right: 0;
+  height: auto; /* Allow the sidebar to expand to the content height */
+  max-height: 100%; /* Make sure it doesn't exceed the viewport height */
+  
+  transition: bottom 0.3s;
+  z-index: 1000;
+  }
+  
+  .sidebar.active {
+  bottom: 0; /* Position at the bottom */
+  }
+  
+  .main-content.expanded {
+  margin-bottom: 300px; /* Make room for the sidebar */
+  }
+  
+  /* Hide the toggle button once the sidebar is active */
+  .toggle-btn-sidebar.active {
+  display: none;
+  }
+  
+  .user-area {
+    position: relative; /* or absolute, depending on your layout needs */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 20px;
+  }
+  
+  /* Adjust the bottom padding of the nav-container-items to add space above the user area */
+  .nav-container-items {
+    padding-bottom: 60px; /* Increase bottom padding to push the user area down */
+  }
+  
+  /* You may also want to adjust the transform property of the dropdown menu to place it correctly */
+  .dropdown-menu-username {
+    transform: translateY(-100%); /* Move it up by its own height */
+    bottom: 60px; /* Adjust this value to ensure the dropdown appears above the user area */
+  }
+  
+  .toggle-btn-sidebar, .toggle-btn-sidebar-closed {
+    display: flex !important; /* Use !important to ensure it overrides any other styles */
+    position: fixed;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    z-index: 1100;
+  }
+  
+  /* When the sidebar is active, we need to show the toggle button at the top */
+  .sidebar.active .toggle-btn-sidebar {
+    display: flex; /* This will show the button */
+    position: absolute;
+    top: 10px; /* Position the button from the top of the sidebar */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  }

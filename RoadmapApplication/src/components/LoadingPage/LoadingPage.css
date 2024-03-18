@@ -1,0 +1,18 @@
+.loading-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #000;
+  }
+  
+  .loading-content {
+    text-align: center;
+  }
+  
+  .background-image {
+    max-width: 100%;
+    width:300px;
+    height: auto;
+    opacity: 0.5; /* Adjust opacity to make the spinner more prominent */
+  }

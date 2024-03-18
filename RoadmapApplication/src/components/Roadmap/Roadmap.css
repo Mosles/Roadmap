@@ -1,0 +1,97 @@
+.roadmap-card {
+  border-radius: 5px;
+  padding: 20px;
+  margin: 20px auto; /* Center the card with automatic horizontal margins */
+  background-color: #5a5a5a; /* Adjust the background color to match Todoist's style */
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow for depth */
+  color: #fff; /* Text color */
+  display: grid;
+  width: 100%; /* Adjust the width as needed */
+  grid-template-columns: 1fr auto; /* Two columns: 1fr for the title, auto for the date */
+  grid-template-rows: auto 1fr auto; /* Three rows */
+  gap: 10px; /* Space between grid items */
+  padding: 1rem; /* Adjust padding */
+  transition: background-color 0.3s ease;
+}
+
+.roadmap-card:hover {
+  background-color: #272727; /* Slightly lighter background on hover to indicate interactivity */
+  cursor: pointer; /* Change the cursor to indicate the item is clickable */
+}
+
+.roadmap-title {
+  font-size: 1.2rem; /* Title font size */
+  grid-column: 1; /* First column */
+  grid-row: 1; /* First row */
+  margin-right: 10px; /* Right margin for spacing */
+}
+
+.roadmap-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.roadmap-type {
+  background-color: #777; /* for example, choose a color that stands out */
+  color: white;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem; /* Smaller font size for the type indicator */
+}
+
+.roadmap-date {
+  font-size: 0.8rem; /* Smaller font size for the date */
+  grid-column: 2; /* Second column */
+  grid-row: 1; /* First row */
+  justify-self: start; /* Align to the start of the column */
+  white-space: nowrap; /* Prevent wrapping */
+}
+
+.roadmap-description {
+  grid-column: 1 / -1; /* Span across all columns */
+  grid-row: 2; /* Second row */
+  margin-top: 1rem; /* Top margin for spacing */
+  position: relative; /* Set to relative to position the pseudo-element */
+  max-height: 4.5em; /* Set a max height to control the fading effect area */
+  overflow: hidden; /* Hide overflow */
+  background-color: transparent;
+}
+
+.task-text {
+  margin-left: 10px; /* Adjust the space as needed */
+}
+
+.task-indicator i{
+
+}
+
+.task-indicator .svg-inline--fa {
+  font-size:18px;
+}
+
+
+/* You can also adjust the roadmap-description hover to make it more visible on hover */
+.roadmap-description:hover::after {
+  /* Increase the transparency of the fade effect */
+  background: linear-gradient(to bottom, transparent, rgba(39, 39, 39, 0.7) 90%);
+}
+
+.roadmap-card.active, .roadmap-card:hover {
+  background-color: #272727; /* Slightly lighter background on hover or when active */
+}
+
+
+.roadmap-footer {
+  grid-column: 1 / -1; /* Span across all columns */
+  grid-row: 3; /* Third row */
+  margin-top: 1rem; /* Top margin for spacing */
+}
+
+/* Style the tasks container similarly, if you're using one */
+.tasks-container {
+  width: 100%; /* Full width of the card */
+  display: flex;
+  flex-direction: column; /* Stack tasks vertically */
+}

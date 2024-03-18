@@ -1,0 +1,278 @@
+.task-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+}
+
+.task-modal-content {
+    display: flex;
+    flex-direction: column; /* Ensures vertical stacking */
+    background-color: #252525; /* Dark background for modal */
+    color: #fff; /* Light text */
+    width: 850px; /* Modal width */
+    height:750px;
+    max-height: 90%; /* Modal maximum height */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Ensures content fits within the modal */
+}
+
+.task-modal-sidebar {
+  background-color: #2C2C2C; /* Dark sidebar for contrast */
+  color: #ccc; /* Lighter text for visibility */
+  padding: 15px;
+  width: 200px; /* Sidebar fixed width */
+  flex-shrink: 0; /* Prevent sidebar from shrinking */
+}
+
+.task-modal-body {
+    margin-bottom: 20px;
+}
+
+.task-modal-header {
+    background-color: #202020; /* Slightly darker than modal content for contrast */
+    color: #fff;
+    padding: 15px 20px;
+    font-size: 18px; /* Adjust based on your preference */
+    display: flex;
+    font-size:16px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333; /* Subtle separation */
+    width: 100%; /* Ensure the header stretches across the top */
+}
+
+.task-modal-sidebar {
+    background-color: #2C2C2C; /* Dark sidebar for contrast */
+    color: #ccc; /* Lighter text for visibility */
+    padding: 15px;
+    width: 200px; /* Sidebar width */
+    display: flex;
+    flex-direction: column; /* Ensures vertical layout for sidebar items */
+    height: 100%; /* Full height of modal content */
+    overflow-y: auto; /* Allows scrolling within sidebar if needed */
+}
+
+.task-modal-main {
+    padding: 20px;
+    flex-grow: 1; /* Takes up remaining width */
+    background-color: #252525; /* Same as modal background for a cohesive look */
+    color: #fff; /* Maintains light text */
+    overflow-y: auto; /* Allows scrolling within main content if needed */
+}
+
+
+.modal-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ccc;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.modal-actions {
+    display: flex;
+    align-items: center;
+}
+
+.content-container-taskmodal {
+    display: flex;
+    flex-grow: 1; /* Make sure it fills the space after the header */
+    align-items: flex-start; /* Aligns children (sidebar and main) to the start, ensuring they begin from the top */
+}
+
+
+.close-modal-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+}
+
+.sidebar-section {
+    margin-bottom: 20px;
+}
+
+.sidebar-section p{
+    font-size: 14px;
+}
+
+.sidebar-title {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #ccc; /* Lighter color for the titles */
+}
+
+.comments-container {
+    margin-top: 20px;
+  }
+  
+  .comment-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent; /* Background color for input area */
+    border-radius: 4px;
+    border: 1px solid #777;
+    overflow: hidden;
+    max-height: 48px; /* Initial max-height that fits the input field */
+    padding: 8px 16px;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+  
+  .comment-input-wrapper.expanded {
+    max-height: 200px; /* Enough max-height to fit expanded content */
+    padding: 16px;
+  }
+  
+  .username-icon {
+    font-weight: bold;
+    color: #FFF; /* Adjust color to fit your design */
+    align-self: flex-start;
+    margin-bottom: 8px;
+  }
+  
+  .comment-input-field {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: #FFF; /* Adjust text color to fit your design */
+    outline: none;
+    transition: background-color 0.3s; /* Transition for focus effect */
+  }
+  
+  .comment-input-field::placeholder {
+    color: #CCC; /* Placeholder text color */
+  }
+  
+  .comment-action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease;
+  }
+
+  .comment-input-wrapper.expanded .comment-action-buttons {
+    opacity: 1;
+  }
+  
+  /* Add a slight delay to the buttons' appearance to allow for the slide-down effect to begin */
+  .comment-input-wrapper.expanded .comment-action-buttons {
+    transition-delay: 0.15s;
+  }
+  
+  /* Hide the buttons again when not expanded, with no delay */
+  .comment-input-wrapper .comment-action-buttons {
+    transition-delay: 0s;
+  }
+  
+  .comment-button {
+    padding: 5px 10px;
+    margin-left: 8px; /* Space between buttons */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .comment-button.cancel:hover {
+    background-color: #444; /* Slightly lighter or darker for cancel hover effect */
+  }
+  
+  .comment-button.comment:hover {
+    background-color: green; /* Slightly lighter or darker for comment hover effect */
+  }  
+  
+  .comment-button.cancel {
+    background-color: #555; /* Darker for cancel */
+    color: #fff;
+  }
+  
+  .comment-button.comment {
+    background-color: rgb(2, 52, 2); /* Red for comment */
+    color: #fff;
+  }
+  
+
+  .complete-task-button-container {
+    margin-top: 40px;
+  }
+  
+  .complete-task-button-container button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    background-color: grey;
+    color:white;
+  }
+
+  .complete-task-button-container button:hover {
+    background-color: green;
+  }
+  
+  .confirmation-button {
+    margin-right: 20px; /* Add space between buttons */
+  }
+  
+  .confirmation-button.check:hover {
+    background-color: green;
+  }
+  
+  .confirmation-button.close:hover {
+    background-color: red;
+  }
+
+  .comments-list {
+    margin-top: 20px;
+    font-family: Arial, sans-serif; /* Adjust font family as needed */
+  }
+  
+  .comments-list-container {
+    max-height: 350px; /* Adjusted max height to allow more comments before scrolling */
+    overflow-y: auto; /* Keeps vertical scrolling */
+    margin-top: 20px;
+    padding-right: 4px; /* Adjusts for scrollbar visibility */
+  }
+  
+  .comment-item {
+    background-color: #2d2d2d; /* Dark mode background color */
+    color: #ffffff; /* Text color */
+    padding: 8px 16px;
+    border-radius: 4px;
+    margin-bottom: 15px; /* Space between comments */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+  }
+  
+  .comment-item:last-child {
+    margin-bottom: 0; /* Remove bottom margin for the last comment item */
+  }
+  
+  .comment-header {
+    font-size: 0.85rem; /* Smaller font size for the header */
+    margin-bottom: 4px; /* Space between header and text */
+  }
+  
+  .comment-username {
+    font-weight: bold;
+  }
+  
+  .comment-timestamp {
+    color: #a1a1a1; /* Lighter color for timestamp */
+    font-size: 0.8rem; /* Even smaller font size for timestamp */
+  }
+  
+  .comment-text {
+    font-size: 0.9rem;
+  }
